@@ -52,7 +52,7 @@ const WizardStepper = ({
 			}
 
 			if (formik.isValid) {
-				let updatedCompleted = completed;
+				const updatedCompleted = completed;
 				updatedCompleted[page] = true;
 				setCompleted(updatedCompleted);
 				setPage(key);
