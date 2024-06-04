@@ -8,15 +8,12 @@ import {
 	useStepperStyle,
 } from "../../../utils/wizardUtils";
 import CustomStepIcon from "./CustomStepIcon";
-import { FormikProps } from "formik/dist/types";
 
 const WizardStepperEvent = ({
 	steps,
 	page,
 	setPage,
-	formik,
 	completed,
-	setCompleted,
 } : {
 	steps: {
 		name: string,
@@ -25,9 +22,7 @@ const WizardStepperEvent = ({
 	}[],
 	page: number,
 	setPage: (num: number) => void,
-	formik: FormikProps<any>,
 	completed: Record<number, boolean>,
-	setCompleted: (rec: Record<number, boolean>) => void,
 }) => {
 	const { t } = useTranslation();
 

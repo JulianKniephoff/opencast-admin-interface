@@ -146,8 +146,6 @@ const NewEventWizard: React.FC<{
 								page={page}
 								setPage={setPage}
 								completed={pageCompleted}
-								setCompleted={setPageCompleted}
-								formik={formik}
 							/>
 							<div>
 								{page === 0 && (
