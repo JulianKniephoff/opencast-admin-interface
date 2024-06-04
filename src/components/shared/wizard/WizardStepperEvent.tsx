@@ -29,11 +29,11 @@ const WizardStepperEvent = ({
 	const stepperClasses = useStepperStyle();
 	const labelClasses = useStepLabelStyles();
 
-	const handleOnClick = async (key: number) => {
+	const handleOnClick = (key: number) => {
 		if (isSummaryReachable(key, steps, completed)) {
 
 			if (completed[key]) {
-				await setPage(key);
+				setPage(key);
 			}
 
 			let previousPageIndex = key - 1 > 0 ? key - 1 : 0;
@@ -45,7 +45,7 @@ const WizardStepperEvent = ({
 				}
 			}
 			if (completed[previousPageIndex]) {
-				await setPage(key);
+				setPage(key);
 			}
 		}
 	};
