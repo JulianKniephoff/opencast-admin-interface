@@ -145,6 +145,7 @@ const NewEventWizard: React.FC<{
 								steps={steps}
 								page={page}
 								setPage={setPage}
+								formik={formik}
 								completed={pageCompleted}
 							/>
 							<div>

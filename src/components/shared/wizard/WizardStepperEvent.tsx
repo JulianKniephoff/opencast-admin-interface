@@ -8,11 +8,13 @@ import {
 	useStepperStyle,
 } from "../../../utils/wizardUtils";
 import CustomStepIcon from "./CustomStepIcon";
+import { FormikProps } from "formik";
 
 const WizardStepperEvent = ({
 	steps,
 	page,
 	setPage,
+	formik,
 	completed,
 } : {
 	steps: {
@@ -22,6 +24,7 @@ const WizardStepperEvent = ({
 	}[],
 	page: number,
 	setPage: (num: number) => void,
+	formik: FormikProps<any>,
 	completed: Record<number, boolean>,
 }) => {
 	const { t } = useTranslation();
@@ -50,6 +53,8 @@ const WizardStepperEvent = ({
 		}
 	};
 
+	const disabled = !(formik.dirty && formik.isValid);
+
 	return (
 		<Stepper
 			activeStep={page}
@@ -61,7 +66,7 @@ const WizardStepperEvent = ({
 			{steps.map((label, key) =>
 				label.hidden || (
 					<Step key={label.translation} completed={completed[key]}>
-						<StepButton onClick={() => handleOnClick(key)}>
+						<StepButton onClick={() => handleOnClick(key)} disabled={disabled}>
 							<StepLabel className={labelClasses.root} StepIconComponent={CustomStepIcon}>
 								{t(label.translation)}
 							</StepLabel>
