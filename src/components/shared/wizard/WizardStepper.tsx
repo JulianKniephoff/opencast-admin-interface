@@ -10,7 +10,7 @@ import {
 import CustomStepIcon from "./CustomStepIcon";
 import { checkAcls } from "../../../slices/aclSlice";
 import { useAppDispatch } from "../../../store";
-import { FormikProps } from "formik/dist/types";
+import { FormikProps } from "formik";
 
 /**
  * This components renders the stepper navigation of new resource wizards
