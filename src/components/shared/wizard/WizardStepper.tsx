@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import cn from "classnames";
 import { Step, StepButton, StepLabel, Stepper } from "@mui/material";
 import {
+	StepProps,
 	isSummaryReachable,
 	useStepLabelStyles,
 	useStepperStyle,
@@ -24,11 +25,7 @@ const WizardStepper = ({
 	setCompleted,
 	hasAccessPage = false,
 }: {
-	steps: {
-		name: string,
-		translation: string,
-		hidden?: boolean,
-	}[],
+	steps: StepProps[],
 	page: number,
 	setPage: (num: number) => void,
 	formik: FormikProps<any>,

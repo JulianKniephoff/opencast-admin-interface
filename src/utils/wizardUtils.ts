@@ -31,15 +31,19 @@ export const useStepIconStyles = makeStyles({
 	},
 });
 
+export type StepProps = {
+	name: string,
+	translation: string,
+	hidden?: boolean,
+};
+
 /* This method checks if the summary page is reachable.
  * If the clicked page is some other page than summary then no check is needed.
  * If the clicked page is summary then it only should be clickable/reachable if all other
  * visible pages of the wizard are valid.
  */
-// @ts-expect-error TS(7006): Parameter 'key' implicitly has an 'any' type.
-export const isSummaryReachable = (key, steps, completed) => {
+export const isSummaryReachable = (key: number, steps: StepProps[], completed: Record<number, boolean>) => {
 	if (steps[key].name === "summary") {
-// @ts-expect-error TS(7006): Parameter 'step' implicitly has an 'any' type.
 		const visibleSteps = steps.filter((step) => !step.hidden);
 
 		return Object.keys(completed).length >= visibleSteps.length - 2;
