@@ -44,9 +44,9 @@ export type StepProps = {
  */
 export const isSummaryReachable = (key: number, steps: StepProps[], completed: Record<number, boolean>) => {
 	if (steps[key].name === "summary") {
-		const visibleSteps = steps.filter((step) => !step.hidden);
+		const relevantSteps = steps.filter(step => !step.hidden && step.name !== "summary");
 
-		return Object.keys(completed).length >= visibleSteps.length - 2;
+		return Object.keys(completed).length >= relevantSteps.length;
 	}
 
 	return true;
