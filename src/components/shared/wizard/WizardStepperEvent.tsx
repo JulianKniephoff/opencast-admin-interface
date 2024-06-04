@@ -59,7 +59,7 @@ const WizardStepperEvent = ({
 			className={cn("step-by-step", stepperClasses.root)}
 		>
 			{steps.map((label, key) =>
-				!label.hidden ? (
+				label.hidden || (
 					<Step key={label.translation} completed={completed[key]}>
 						<StepButton onClick={() => handleOnClick(key)}>
 							<StepLabel className={labelClasses.root} StepIconComponent={CustomStepIcon}>
@@ -67,7 +67,7 @@ const WizardStepperEvent = ({
 							</StepLabel>
 						</StepButton>
 					</Step>
-				) : <></>
+				)
 			)}
 		</Stepper>
 	);
