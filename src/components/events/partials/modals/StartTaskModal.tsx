@@ -110,7 +110,6 @@ const StartTaskModal = ({
 								<div>
 									{page === 0 && (
 										<StartTaskGeneralPage
-											// @ts-expect-error: Type-checking gets confused by redux-connect in the child
 											formik={formik}
 											// @ts-expect-error: Type-checking gets confused by redux-connect in the child
 											nextPage={nextPage}

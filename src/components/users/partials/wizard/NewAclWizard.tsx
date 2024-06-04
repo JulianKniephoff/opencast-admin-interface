@@ -93,7 +93,6 @@ const NewAclWizard = ({
 								)}
 								{page === 1 && (
 									<AclAccessPage
-									// @ts-expect-error: Type-checking gets confused by redux-connect in the child
 										formik={formik}
 										// @ts-expect-error: Type-checking gets confused by redux-connect in the child
 										nextPage={nextPage}
